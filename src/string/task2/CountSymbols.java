@@ -11,24 +11,20 @@ public class CountSymbols {
     private static void countSymbols(String text) {
 
         StringBuilder changeText = new StringBuilder(text);
-//String changeText = text;
 
         String writeEnd = "";
 
         for (int i = 0; i < text.length(); i++) {
 
             int counter = 0;
-            int numChar;
 
             do {
-                numChar = changeText.indexOf(String.valueOf(text.charAt(i)));
-
-                if (numChar >= 0) {
+                if (changeText.indexOf(String.valueOf(text.charAt(i))) >= 0) {
                     counter++;
-                    changeText.deleteCharAt(numChar);
+                    changeText.deleteCharAt(changeText.indexOf(String.valueOf(text.charAt(i))));
                 }
             }
-            while (numChar >= 0);
+            while (changeText.indexOf(String.valueOf(text.charAt(i))) >= 0);
 
             if (counter > 0) {
                 if (i == 0) {
